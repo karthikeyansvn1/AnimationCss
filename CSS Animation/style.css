@@ -1,0 +1,89 @@
+/* Base styles */
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+  }
+  
+  /* Floating container */
+  .container {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: float-container 6s ease-in-out infinite;
+  }
+  
+  /* Moving box */
+  .box {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(145deg, #ff8a00, #ff3d00);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    animation: move-box 6s ease-in-out infinite;
+  }
+  
+  /* Ball inside the box */
+  .ball {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, #4facfe, #00f2fe);
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: move-ball 6s cubic-bezier(0.25, 1, 0.5, 1) infinite;
+  }
+  
+  /* Floating container animation */
+  @keyframes float-container {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+  }
+  
+  /* Box movement animation */
+  @keyframes move-box {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    25% {
+      transform: translateX(60px);
+    }
+    50% {
+      transform: translateX(0);
+    }
+    75% {
+      transform: translateX(-60px);
+    }
+  }
+  
+  /* Ball inertia effect */
+  @keyframes move-ball {
+    0%, 100% {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    25% {
+      left: 65%;
+      transform: translateX(-50%);
+    }
+    50% {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    75% {
+      left: 35%;
+      transform: translateX(-50%);
+    }
+  }
